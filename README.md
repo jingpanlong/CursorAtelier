@@ -1,12 +1,12 @@
 <div align="center">
 
-<img src="docs/screenshots/cover.png" alt="光标工坊 Cursor Atelier 封面" width="100%"/>
-
 # ↖ Cursor Atelier · 光标工坊
 
 **一款轻巧的 Windows 鼠标换肤工具 —— 把桌面变成你的游乐场**
 
 54 款原创皮肤 · 动态预览 · Sweezy 导入 · 图片转换 · 六套主题配色
+
+<img src="docs/screenshots/cover.png" alt="光标工坊 Cursor Atelier 封面" width="100%"/>
 
 [![Version](https://img.shields.io/badge/version-1.6.3-8B5CF6.svg)](https://github.com/jingpanlong/CursorAtelier/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%207%2B-blue.svg)]()
