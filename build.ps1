@@ -18,9 +18,11 @@ if (-not (Test-Path -LiteralPath $iconFile)) {
     $icon.Save($stream)
     $stream.Dispose(); $icon.Dispose(); $brush.Dispose(); $graphics.Dispose(); $bitmap.Dispose()
 }
-$sources = @('Core.cs','Art.cs','ArtExtras.cs','ArtSecondExtras.cs','NewSkinsTests.cs','UI.cs','Features.cs','Reliability.cs','ReliabilityTests.cs','Sizing.cs','SizingTests.cs','ActualCursors.cs','App.cs','AssemblyInfo.cs') | ForEach-Object { Join-Path $PSScriptRoot $_ }
+$sourceRoot = Join-Path $PSScriptRoot 'src'
+$sources = @('Core.cs','Art.cs','ArtExtras.cs','ArtSecondExtras.cs','NewSkinsTests.cs','UI.cs','Features.cs','Reliability.cs','ReliabilityTests.cs','Sizing.cs','SizingTests.cs','ActualCursors.cs','App.cs','AssemblyInfo.cs') | ForEach-Object { Join-Path $sourceRoot $_ }
+$installerSource = Join-Path $sourceRoot 'Installer.cs'
 & $compiler /nologo /target:winexe /platform:anycpu /optimize+ /utf8output "/win32icon:$iconFile" "/win32manifest:$PSScriptRoot\app.manifest" "/out:$outputRoot\CursorAtelier.exe" /reference:System.dll /reference:System.Core.dll /reference:System.Drawing.dll /reference:System.Windows.Forms.dll /reference:System.Web.Extensions.dll /reference:System.IO.Compression.dll /reference:System.IO.Compression.FileSystem.dll /reference:System.Net.Http.dll $sources
 if ($LASTEXITCODE -ne 0) { throw 'Application build failed' }
-& $compiler /nologo /target:winexe /platform:anycpu /optimize+ /utf8output "/win32icon:$iconFile" "/win32manifest:$PSScriptRoot\app.manifest" "/resource:$outputRoot\CursorAtelier.exe,CursorAtelier.exe" "/out:$outputRoot\CursorAtelier-Setup.exe" /reference:System.dll /reference:System.Core.dll /reference:System.Drawing.dll /reference:System.Windows.Forms.dll /reference:Microsoft.CSharp.dll (Join-Path $PSScriptRoot 'Installer.cs')
+& $compiler /nologo /target:winexe /platform:anycpu /optimize+ /utf8output "/win32icon:$iconFile" "/win32manifest:$PSScriptRoot\app.manifest" "/resource:$outputRoot\CursorAtelier.exe,CursorAtelier.exe" "/out:$outputRoot\CursorAtelier-Setup.exe" /reference:System.dll /reference:System.Core.dll /reference:System.Drawing.dll /reference:System.Windows.Forms.dll /reference:Microsoft.CSharp.dll $installerSource
 if ($LASTEXITCODE -ne 0) { throw 'Installer build failed' }
 Write-Output 'Application and installer built.'
