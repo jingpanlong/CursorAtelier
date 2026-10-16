@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="docs/screenshots/cover.png" alt="光标工坊 Cursor Atelier 封面" width="100%"/>
+
 # ↖ Cursor Atelier · 光标工坊
 
 **一款轻巧的 Windows 鼠标换肤工具 —— 把桌面变成你的游乐场**
@@ -88,9 +90,9 @@ Arrow、Hand、Help、AppStarting、Wait、Crosshair、IBeam、No、SizeAll、Si
 |:---:|:---:|
 | ![导入映射](docs/screenshots/import-mapping.png) | ![尺寸对比](docs/screenshots/size-compare.png) |
 
-| 关于窗口（含开源地址） | 封面 |
+| 关于窗口（含开源地址） | |
 |:---:|:---:|
-| ![关于](docs/screenshots/about.png) | ![封面](docs/screenshots/cover.png) |
+| ![关于](docs/screenshots/about.png) | |
 
 ---
 
